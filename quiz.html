@@ -4,63 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Climbing Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f6fb;
-      color: #2c3e50;
+      font-family: 'Jost', sans-serif;
+      background-color: #fdf6f0;
+      color: #4a3f3f;
       min-height: 100vh;
     }
 
     .navbar {
-      background-color: #b0cfe8;
+      background-color: #f2e0d8;
       padding: 15px 30px;
       text-align: center;
+      border-bottom: 1px solid #e8c9be;
     }
 
     .navbar a {
-      color: #2c3e50;
+      color: #7a4f4f;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 1.1em;
-      font-weight: bold;
+      margin: 0 20px;
+      font-size: 0.9em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .navbar a:hover { color: white; }
+    .navbar a:hover { color: #c49a8a; }
 
     .header {
-      background-color: #7db8d8;
-      color: white;
+      background-color: #f7ede7;
+      color: #7a4f4f;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      border-bottom: 1px solid #e8c9be;
     }
 
-    .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-    .header p { font-size: 1.1em; }
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3em;
+      font-weight: 300;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #a07070;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
 
     .quiz-container {
       max-width: 700px;
-      margin: 40px auto;
-      padding: 30px;
+      margin: 50px auto;
+      padding: 40px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      border: 1px solid #f0d8d0;
+      box-shadow: 0 2px 10px rgba(180,140,130,0.07);
     }
 
     .question-number {
-      font-size: 0.9em;
-      color: #7db8d8;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-size: 0.8em;
+      color: #c49a8a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     .question-text {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #2c3e50;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6em;
+      font-weight: 400;
+      color: #7a4f4f;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .progress-bar-container {
+      background-color: #f0d8d0;
+      border-radius: 10px;
+      height: 6px;
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      background-color: #c49a8a;
+      height: 6px;
+      border-radius: 10px;
+      transition: width 0.4s;
     }
 
     .options {
@@ -72,56 +106,52 @@
 
     .option-btn {
       padding: 14px 20px;
-      border: 2px solid #b0cfe8;
+      border: 1px solid #e8c9be;
       border-radius: 8px;
       background: white;
-      font-size: 1em;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95em;
       cursor: pointer;
       text-align: left;
       transition: all 0.2s;
-      color: #2c3e50;
+      color: #4a3f3f;
+      letter-spacing: 0.5px;
     }
 
-    .option-btn:hover { background-color: #f0f6fb; border-color: #7db8d8; }
-    .option-btn.correct { background-color: #d4edda; border-color: #28a745; color: #155724; }
-    .option-btn.incorrect { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+    .option-btn:hover { background-color: #fdf6f0; border-color: #c49a8a; }
+    .option-btn.correct { background-color: #f0f7f0; border-color: #8fbc8f; color: #3a5f3a; }
+    .option-btn.incorrect { background-color: #fdf0f0; border-color: #d4908a; color: #7a3f3f; }
     .option-btn:disabled { cursor: default; }
 
     .feedback {
-      font-size: 1em;
-      font-weight: bold;
-      margin-bottom: 15px;
-      min-height: 24px;
+      font-size: 0.9em;
+      font-weight: 500;
+      margin-bottom: 20px;
+      min-height: 22px;
+      letter-spacing: 0.5px;
     }
 
-    .feedback.correct { color: #28a745; }
-    .feedback.incorrect { color: #dc3545; }
+    .feedback.correct { color: #6a9f6a; }
+    .feedback.incorrect { color: #c47a70; }
 
     .next-btn {
-      padding: 12px 30px;
-      background-color: #5a9ec9;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 1em;
+      padding: 12px 35px;
+      background-color: transparent;
+      color: #7a4f4f;
+      border: 1px solid #c49a8a;
+      border-radius: 30px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       cursor: pointer;
       display: none;
+      transition: all 0.3s;
     }
 
-    .next-btn:hover { background-color: #7db8d8; }
-
-    .progress-bar-container {
-      background-color: #e0e0e0;
-      border-radius: 10px;
-      height: 10px;
-      margin-bottom: 25px;
-    }
-
-    .progress-bar {
-      background-color: #7db8d8;
-      height: 10px;
-      border-radius: 10px;
-      transition: width 0.4s;
+    .next-btn:hover {
+      background-color: #c49a8a;
+      color: white;
     }
 
     .results {
@@ -129,32 +159,62 @@
       display: none;
     }
 
-    .results h2 { font-size: 2em; color: #5a9ec9; margin-bottom: 15px; }
-    .results p { font-size: 1.2em; margin-bottom: 20px; }
-    .results .score { font-size: 3em; font-weight: bold; color: #2c3e50; margin: 20px 0; }
-
-    .restart-btn {
-      padding: 12px 30px;
-      background-color: #5a9ec9;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 1em;
-      cursor: pointer;
-      margin-top: 10px;
+    .results h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5em;
+      font-weight: 300;
+      color: #7a4f4f;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
     }
 
-    .restart-btn:hover { background-color: #7db8d8; }
+    .results .score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4em;
+      font-weight: 300;
+      color: #c49a8a;
+      margin: 20px 0;
+    }
 
-    .footer {
-      background-color: #7db8d8;
+    .results p {
+      color: #a07070;
+      font-size: 1em;
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+    }
+
+    .restart-btn {
+      padding: 12px 35px;
+      background-color: transparent;
+      color: #7a4f4f;
+      border: 1px solid #c49a8a;
+      border-radius: 30px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .restart-btn:hover {
+      background-color: #c49a8a;
       color: white;
+    }
+
+    footer {
+      background-color: #f2e0d8;
+      color: #a07070;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
+      font-size: 0.85em;
+      letter-spacing: 1px;
+      border-top: 1px solid #e8c9be;
       margin-top: 60px;
     }
 
-    .footer a { color: white; }
+    footer a { color: #7a4f4f; text-decoration: none; }
+    footer a:hover { color: #c49a8a; }
   </style>
 </head>
 <body>
@@ -168,19 +228,17 @@
 
   <!-- HEADER -->
   <div class="header">
-    <h1>🧗 Climbing Quiz</h1>
-    <p>How much do you know about rock climbing? Let's find out!</p>
+    <h1>Climbing Quiz</h1>
+    <p>How much do you know about rock climbing?</p>
   </div>
 
   <!-- QUIZ -->
   <div class="quiz-container">
 
-    <!-- Progress bar -->
     <div class="progress-bar-container">
       <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
     </div>
 
-    <!-- Question area -->
     <div id="questionArea">
       <div class="question-number" id="questionNumber">Question 1 of 10</div>
       <div class="question-text" id="questionText"></div>
@@ -189,9 +247,8 @@
       <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
     </div>
 
-    <!-- Results area -->
     <div class="results" id="resultsArea">
-      <h2>Quiz Complete! 🎉</h2>
+      <h2>Quiz Complete</h2>
       <div class="score" id="scoreDisplay"></div>
       <p id="resultMessage"></p>
       <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
@@ -199,9 +256,9 @@
 
   </div>
 
-  <div class="footer">
-    <p>© 2026 Anna Rowe | <a href="climbing.html">Back to Climbing Page</a></p>
-  </div>
+  <footer>
+    <p>© 2026 Anna Rowe &nbsp;|&nbsp; <a href="climbing.html">Back to Climbing Page</a></p>
+  </footer>
 
   <script>
     const questions = [
@@ -297,13 +354,13 @@
 
       if (selectedIndex === q.answer) {
         buttons[selectedIndex].classList.add('correct');
-        feedback.textContent = '✅ Correct! Great job!';
+        feedback.textContent = '✓ Correct! Great job!';
         feedback.className = 'feedback correct';
         score++;
       } else {
         buttons[selectedIndex].classList.add('incorrect');
         buttons[q.answer].classList.add('correct');
-        feedback.textContent = `❌ Not quite! The correct answer was: "${q.options[q.answer]}"`;
+        feedback.textContent = `✗ Not quite! The correct answer was: "${q.options[q.answer]}"`;
         feedback.className = 'feedback incorrect';
       }
 
@@ -327,9 +384,9 @@
 
       let message = '';
       if (score === 10) message = "Perfect score! You're a climbing expert! 🏆";
-      else if (score >= 7) message = "Great job! You really know your climbing! 🧗‍♀️";
-      else if (score >= 4) message = "Not bad! Keep climbing and learning! 💪";
-      else message = "Keep practicing — both the climbing and the trivia! 😄";
+      else if (score >= 7) message = "Great job! You really know your climbing!";
+      else if (score >= 4) message = "Not bad! Keep climbing and learning!";
+      else message = "Keep practicing — both the climbing and the trivia!";
 
       document.getElementById('resultMessage').textContent = message;
     }
@@ -342,7 +399,6 @@
       loadQuestion();
     }
 
-    // Start the quiz
     loadQuestion();
   </script>
 
