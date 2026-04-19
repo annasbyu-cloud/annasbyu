@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anna's Climbing Page</title>
+  <link rel="stylesheet" href="climbing-style.css"/>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="climbing.html">Climbing</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🧗 My Love for Climbing</h1>
+    <p>Life is better at the top of the wall</p>
+    <a href="#tips" class="anchor-btn">Jump to Beginner Tips ↓</a>
+  </div>
+
+  <!-- SECTION 1: ABOUT CLIMBING -->
+  <div class="section">
+    <h2>Why I Love Climbing</h2>
+    <p>
+      Rock climbing is more than just a sport — it's a mental and physical challenge that pushes
+      you to your limits in the best way possible. Whether it's bouldering at the gym or climbing
+      outdoors in the Utah mountains, I love every second of it. There's nothing quite like
+      reaching the top of a route you've been working on for weeks!
+    </p>
+    <img
+      src="climbing.jpg"
+      alt="Anna climbing outdoors"
+      class="climbing-img"
+    />
+  </div>
+
+  <!-- SECTION 2: TYPES OF CLIMBING -->
+  <div class="section">
+    <h2>Types of Climbing</h2>
+    <p>There are several different styles of climbing, each with its own unique challenge:</p>
+
+    <ol>
+      <li><strong>Bouldering</strong>
+        <ul>
+          <li>No ropes or harness needed</li>
+          <li>Short, powerful routes called "problems"</li>
+          <li>Great for beginners</li>
+        </ul>
+      </li>
+      <li><strong>Top Rope Climbing</strong>
+        <ul>
+          <li>Rope anchored at the top of the wall</li>
+          <li>Very safe and beginner friendly</li>
+          <li>Common at indoor gyms</li>
+        </ul>
+      </li>
+      <li><strong>Lead Climbing</strong>
+        <ul>
+          <li>Climber clips the rope as they go up</li>
+          <li>More advanced technique required</li>
+          <li>Used in competitions</li>
+        </ul>
+      </li>
+      <li><strong>Outdoor / Trad Climbing</strong>
+        <ul>
+          <li>Climbing real rock faces outside</li>
+          <li>Requires gear placement knowledge</li>
+          <li>Utah has incredible outdoor routes!</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- SECTION 3: WATCH & LEARN -->
+  <div class="section">
+    <h2>Watch & Learn</h2>
+    <p>Here's a great video about rock climbing for beginners:</p>
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/HmFNSFtMQpY"
+        title="Beginner Rock Climbing Tips"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- SECTION 4: BEGINNER TIPS (anchor target) -->
+  <div class="section" id="tips">
+    <h2>Beginner Tips 🏔️</h2>
+    <p>Just getting started with climbing? Here are my top tips:</p>
+    <ul>
+      <li>Start with bouldering — no gear needed and super fun</li>
+      <li>Focus on your footwork, not just your arms</li>
+      <li>Rest between attempts — climbing is very taxing on your fingers</li>
+      <li>Visit a local gym like <strong>Momentum Climbing</strong> in Salt Lake City</li>
+      <li>Don't be afraid to ask more experienced climbers for beta (advice)</li>
+      <li>Invest in a good pair of climbing shoes early on</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5: TABLEAU -->
+  <div class="section">
+    <h2>Climbing by the Numbers 📊</h2>
+    <p>Here's a visualization showing rock climbing across different US states:</p>
+    <div class='tableauPlaceholder' id='viz1' style='position: relative; width: 100%; height: 500px;'>
+      <noscript>
+        <a href='#'>
+          <img alt='Rock Climbing by State' src='https://public.tableau.com/static/images/dashboard.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='RockClimbingState/Sheet1' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+      </object>
+    </div>
+    <script type='text/javascript'>
+      var divElement = document.getElementById('viz1');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width = '100%';
+      vizElement.style.height = '500px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2026 Anna Rowe | <a href="index.html" style="color: white;">Back to Home</a> | <a href="quiz.html" style="color: white;">🧗 Take the Climbing Quiz</a></p>
+  </div>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Climbing Quiz</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f6fb;
+      color: #2c3e50;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background-color: #b0cfe8;
+      padding: 15px 30px;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: #2c3e50;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .navbar a:hover { color: white; }
+
+    .header {
+      background-color: #7db8d8;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+    .header p { font-size: 1.1em; }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .question-number {
+      font-size: 0.9em;
+      color: #7db8d8;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .question-text {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .option-btn {
+      padding: 14px 20px;
+      border: 2px solid #b0cfe8;
+      border-radius: 8px;
+      background: white;
+      font-size: 1em;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      color: #2c3e50;
+    }
+
+    .option-btn:hover { background-color: #f0f6fb; border-color: #7db8d8; }
+    .option-btn.correct { background-color: #d4edda; border-color: #28a745; color: #155724; }
+    .option-btn.incorrect { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+    .option-btn:disabled { cursor: default; }
+
+    .feedback {
+      font-size: 1em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      min-height: 24px;
+    }
+
+    .feedback.correct { color: #28a745; }
+    .feedback.incorrect { color: #dc3545; }
+
+    .next-btn {
+      padding: 12px 30px;
+      background-color: #5a9ec9;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      display: none;
+    }
+
+    .next-btn:hover { background-color: #7db8d8; }
+
+    .progress-bar-container {
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      height: 10px;
+      margin-bottom: 25px;
+    }
+
+    .progress-bar {
+      background-color: #7db8d8;
+      height: 10px;
+      border-radius: 10px;
+      transition: width 0.4s;
+    }
+
+    .results {
+      text-align: center;
+      display: none;
+    }
+
+    .results h2 { font-size: 2em; color: #5a9ec9; margin-bottom: 15px; }
+    .results p { font-size: 1.2em; margin-bottom: 20px; }
+    .results .score { font-size: 3em; font-weight: bold; color: #2c3e50; margin: 20px 0; }
+
+    .restart-btn {
+      padding: 12px 30px;
+      background-color: #5a9ec9;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .restart-btn:hover { background-color: #7db8d8; }
+
+    .footer {
+      background-color: #7db8d8;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .footer a { color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="climbing.html">Climbing</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🧗 Climbing Quiz</h1>
+    <p>How much do you know about rock climbing? Let's find out!</p>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-container">
+
+    <!-- Progress bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+    </div>
+
+    <!-- Question area -->
+    <div id="questionArea">
+      <div class="question-number" id="questionNumber">Question 1 of 10</div>
+      <div class="question-text" id="questionText"></div>
+      <div class="options" id="optionsContainer"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+    </div>
+
+    <!-- Results area -->
+    <div class="results" id="resultsArea">
+      <h2>Quiz Complete! 🎉</h2>
+      <div class="score" id="scoreDisplay"></div>
+      <p id="resultMessage"></p>
+      <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>© 2026 Anna Rowe | <a href="climbing.html">Back to Climbing Page</a></p>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What does 'beta' mean in climbing?",
+        options: ["A type of climbing shoe", "Information or advice about how to do a route", "A beginner climber", "A type of knot"],
+        answer: 1
+      },
+      {
+        question: "What is bouldering?",
+        options: ["Climbing very tall mountains", "Climbing without ropes on short walls or rocks", "A type of rappelling technique", "Climbing with two ropes"],
+        answer: 1
+      },
+      {
+        question: "What does 'sending' a route mean?",
+        options: ["Falling off the wall", "Texting your climbing partner", "Successfully completing a climbing route", "Belaying someone"],
+        answer: 2
+      },
+      {
+        question: "What is a 'belay' in rock climbing?",
+        options: ["A type of climbing hold", "A technique to control the rope and catch a falling climber", "A climbing grade system", "A type of chalk bag"],
+        answer: 1
+      },
+      {
+        question: "Which US state is famous for Yosemite climbing?",
+        options: ["Colorado", "Utah", "California", "Wyoming"],
+        answer: 2
+      },
+      {
+        question: "What does the V-scale measure?",
+        options: ["The height of a climbing wall", "The difficulty of bouldering problems", "The length of a climbing rope", "The steepness of a route"],
+        answer: 1
+      },
+      {
+        question: "What is 'chalk' used for in climbing?",
+        options: ["Marking routes on the wall", "Improving grip by keeping hands dry", "Cleaning climbing shoes", "Decorating holds"],
+        answer: 1
+      },
+      {
+        question: "What is a 'crimp' in climbing?",
+        options: ["A type of climbing harness", "A small hold that you grip with just your fingertips", "A falling technique", "A type of carabiner"],
+        answer: 1
+      },
+      {
+        question: "What does 'on-sight' mean in climbing?",
+        options: ["Climbing a route with no prior knowledge or attempts", "Watching someone else climb first", "Using a GPS on a route", "Climbing with a guide"],
+        answer: 0
+      },
+      {
+        question: "Which of these is a famous climbing destination in Utah?",
+        options: ["El Capitan", "Red Rock Canyon", "Indian Creek", "Rumney"],
+        answer: 2
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      document.getElementById('questionText').textContent = q.question;
+      document.getElementById('feedback').textContent = '';
+      document.getElementById('feedback').className = 'feedback';
+      document.getElementById('nextBtn').style.display = 'none';
+
+      const progress = (currentQuestion / questions.length) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+      q.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(index);
+        container.appendChild(btn);
+      });
+
+      answered = false;
+    }
+
+    function selectAnswer(selectedIndex) {
+      if (answered) return;
+      answered = true;
+
+      const q = questions[currentQuestion];
+      const buttons = document.querySelectorAll('.option-btn');
+      const feedback = document.getElementById('feedback');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedIndex === q.answer) {
+        buttons[selectedIndex].classList.add('correct');
+        feedback.textContent = '✅ Correct! Great job!';
+        feedback.className = 'feedback correct';
+        score++;
+      } else {
+        buttons[selectedIndex].classList.add('incorrect');
+        buttons[q.answer].classList.add('correct');
+        feedback.textContent = `❌ Not quite! The correct answer was: "${q.options[q.answer]}"`;
+        feedback.className = 'feedback incorrect';
+      }
+
+      document.getElementById('nextBtn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('questionArea').style.display = 'none';
+      document.getElementById('resultsArea').style.display = 'block';
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('scoreDisplay').textContent = `${score} / ${questions.length}`;
+
+      let message = '';
+      if (score === 10) message = "Perfect score! You're a climbing expert! 🏆";
+      else if (score >= 7) message = "Great job! You really know your climbing! 🧗‍♀️";
+      else if (score >= 4) message = "Not bad! Keep climbing and learning! 💪";
+      else message = "Keep practicing — both the climbing and the trivia! 😄";
+
+      document.getElementById('resultMessage').textContent = message;
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('questionArea').style.display = 'block';
+      document.getElementById('resultsArea').style.display = 'none';
+      loadQuestion();
+    }
+
+    // Start the quiz
+    loadQuestion();
+  </script>
+
+</body>
+</html>

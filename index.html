@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anna Rowe - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #fdf6f0;
+      color: #4a3f3f;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #f2e0d8 !important;
+      border-bottom: 1px solid #e8c9be;
+    }
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6em;
+      color: #7a4f4f !important;
+      letter-spacing: 2px;
+    }
+    .nav-link {
+      color: #7a4f4f !important;
+      letter-spacing: 1px;
+      font-size: 0.9em;
+      text-transform: uppercase;
+    }
+    .nav-link:hover { color: #c49a8a !important; }
+
+    /* HERO */
+    .hero {
+      background-color: #f7ede7;
+      text-align: center;
+      padding: 90px 20px;
+      border-bottom: 1px solid #e8c9be;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4em;
+      font-weight: 300;
+      color: #7a4f4f;
+      letter-spacing: 4px;
+    }
+    .hero p {
+      font-size: 1em;
+      color: #a07070;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .hero a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 35px;
+      border: 1px solid #c49a8a;
+      color: #7a4f4f;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+    .hero a:hover {
+      background-color: #c49a8a;
+      color: white;
+    }
+
+    /* RESUME SECTION */
+    .resume-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .resume-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2em;
+      font-weight: 300;
+      color: #7a4f4f;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .resume-block {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 35px;
+      margin-bottom: 25px;
+      border: 1px solid #f0d8d0;
+      box-shadow: 0 2px 10px rgba(180,140,130,0.07);
+    }
+    .resume-block h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3em;
+      color: #c49a8a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #f0d8d0;
+      padding-bottom: 10px;
+    }
+    .resume-block strong {
+      color: #7a4f4f;
+      font-weight: 500;
+    }
+    .resume-block small {
+      color: #b89090;
+      font-size: 0.85em;
+      letter-spacing: 1px;
+    }
+    .resume-block ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+    .resume-block ul li {
+      margin-bottom: 5px;
+      color: #6b5555;
+      font-size: 0.95em;
+    }
+    .resume-block p {
+      color: #6b5555;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #f2e0d8;
+      color: #a07070;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.85em;
+      letter-spacing: 1px;
+      border-top: 1px solid #e8c9be;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ANNA ROWE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="climbing.html">Climbing</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Anna Rowe</h1>
+    <p>Student &nbsp;·&nbsp; Esthetician &nbsp;·&nbsp; Aspiring Accounting Professional</p>
+    <a href="#resume">View My Resume</a>
+  </div>
+
+  <!-- RESUME -->
+  <div class="resume-section" id="resume">
+    <h2>Résumé</h2>
+
+    <!-- Summary -->
+    <div class="resume-block">
+      <h4>Summary</h4>
+      <p>Detail-oriented and dependable Brigham Young University student pursuing a degree in Business with an emphasis in Accounting. Experienced in customer service, front desk operations, and administrative support. Known for strong organization, professionalism, and the ability to manage multiple responsibilities efficiently. Seeking an office-based role.</p>
+    </div>
+
+    <!-- Education -->
+    <div class="resume-block">
+      <h4>Education</h4>
+
+      <div class="mb-3">
+        <strong>Pre-Business (Accounting Track)</strong><br/>
+        Brigham Young University, Provo, UT &nbsp;·&nbsp; <small>Present</small>
+        <ul><li>GPA: 4.0</li></ul>
+      </div>
+
+      <div class="mb-3">
+        <strong>Master Esthetician Program</strong><br/>
+        Skin Science Institute &nbsp;·&nbsp; <small>July 2022 – June 2023</small>
+        <ul>
+          <li>Completed 1,200 hours of hands-on training</li>
+          <li>97% average on written and practical exams</li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>High School Diploma</strong><br/>
+        American Fork High School &nbsp;·&nbsp; <small>May 2023</small>
+        <ul>
+          <li>GPA: 4.0 &nbsp;|&nbsp; ACT: 28</li>
+          <li>Business Communications Coursework</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="resume-block">
+      <h4>Professional Experience</h4>
+
+      <div class="mb-4">
+        <strong>Training Desk Specialist / Receptionist</strong><br/>
+        Missionary Training Center (MTC) &nbsp;·&nbsp; <small>Sep 2023 – Jan 2024</small>
+        <ul>
+          <li>Served as front-desk receptionist for management staff</li>
+          <li>Answered phones, responded to emails, and assisted visitors professionally</li>
+          <li>Supported administrative projects related to training</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <strong>Customer Fulfillment Associate</strong><br/>
+        Sweat Block &nbsp;·&nbsp; <small>Aug 2021 – Aug 2023</small>
+        <ul>
+          <li>Packaged and fulfilled customer orders accurately and efficiently</li>
+          <li>Maintained organization of inventory and shipping materials</li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>Resident Assistant</strong><br/>
+        Welcome Home Assisted Living &nbsp;·&nbsp; <small>Jan 2021 – Aug 2021</small>
+        <ul>
+          <li>Assisted residents with daily needs while maintaining a caring and professional environment</li>
+          <li>Prepared dining areas and supported meal service operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Volunteer -->
+    <div class="resume-block">
+      <h4>Volunteer Experience</h4>
+      <strong>Missionary</strong><br/>
+      The Church of Jesus Christ of Latter-day Saints, Melbourne, Australia
+      <ul>
+        <li>Served full-time in a leadership-focused role requiring strong communication, organization, and time management</li>
+        <li>Trained and supported peers while meeting performance and reporting expectations</li>
+        <li>Maintained detailed records and schedules in a fast-paced environment</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="resume-block">
+      <h4>Skills & Additional Info</h4>
+      <ul>
+        <li>Customer service, professional communication, organization, time management</li>
+        <li>Attention to detail, adaptable, quick learner</li>
+        <li>8 years of international experience: Bosnia, Belgium, Croatia, Australia</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Anna Rowe</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
